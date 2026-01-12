@@ -1,0 +1,40 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COGS Calculator</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>LH Ventures COGS Calculator</h1>
+  </header>
+  <main>
+    <form id="cogs-form">
+      <label for="start-date">Start Date:</label>
+      <input type="date" id="start-date" required>
+      <label for="end-date">End Date:</label>
+      <input type="date" id="end-date" required>
+      <button type="button" id="add-supplier">Add Supplier</button>
+      <input type="text" id="new-supplier" placeholder="New supplier" style="display:none;">
+      <div id="items-container"></div>
+      <button type="button" id="add-item">Add Item</button>
+      <button type="button" id="calculate">Calculate</button>
+    </form>
+    <div id="result"></div>
+    <button id="save-inventory" style="display:none;">Save Inventories</button>
+    <button id="export-csv" style="display:none;">Export CSV</button>
+    <button id="export-pdf" style="display:none;">Export PDF</button>
+  </main>
+  <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+  </script>
+</body>
+</html>
